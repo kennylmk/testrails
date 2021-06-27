@@ -27,6 +27,34 @@ Things you may want to cover:
 
 
 # Instructions on how to build and run your app.
+Installation
+
+Install ruby
+gem UPDATE
+gem update --system
+
+Install SQLite3
+```
+ gem install sqlite3-ruby
+```
+
+Install Node.js
+
+Install yarn
+
+install rails
+```
+gem install rails
+```
+
+Create new application
+```
+rails new score
+```
+
+Setup route
+
+
 ``` 
 bundle exec rails s -p 3000 -b '0.0.0.0'
 ```
