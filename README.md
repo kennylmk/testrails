@@ -27,13 +27,21 @@ Things you may want to cover:
 
 
 # Instructions on how to build and run your app.
-Installation
+## Setup
+### Install all gems:
+```
+$ bundle install
+```
 
-Install ruby
+### Install ruby
+```
 gem UPDATE
 gem update --system
 
-Install SQLite3
+```
+
+###Install SQLite3
+
 ```
  gem install sqlite3-ruby
 ```
@@ -42,7 +50,8 @@ Install Node.js
 
 Install yarn
 
-install rails
+###I nstall rails
+
 ```
 gem install rails
 ```
@@ -52,7 +61,16 @@ Create new application
 rails new score
 ```
 
-Setup route
+
+## Usage
+Http   | Paths | Used for
+GET | /scores|
+POST | /scores/:id | Create record
+PUT | /scores/:id | Update record
+DELETE | /scores/:id | Delete record
+
+Create a new record
+$ curl -X POST -H 'Content-Type: application/jsoo' -d '{"player":}'
 
 
 ``` 
