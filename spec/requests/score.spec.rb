@@ -13,11 +13,7 @@ describe'Score API', type: :request do
 
     describe 'POST /score' do
         it 'Create new score record' do
-            expect {
-                post '/scores', params:{ score: {'player': 'kenny2',
-                'score': '10',
-                'time': '2021/06/21 18:00'}}
-            }.to change { score.count }.from(0).to(1)
+            post '/scores', params:{ 'player': 'kenny2','score': '10','time': '2021/06/21 18:00'}
             expect(response).to have_http_status(:created)
         end
     end
