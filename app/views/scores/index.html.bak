@@ -1,0 +1,10 @@
+<h1>Score</h1>
+<ul>
+  <% @score.each do |player| %>
+    <li>
+      <%= link_to score.player, score %>
+    </li>
+  <% end %>
+</ul>
+
+# <%= link_to "New score", new_score_path %>

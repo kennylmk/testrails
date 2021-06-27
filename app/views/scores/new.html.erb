@@ -1,0 +1,22 @@
+<h1>New Score</h1>
+
+<%= form_with model: @score do |form| %>
+  <div>
+    <%= form.label :player %><br>
+    <%= form.text_field :player %>
+  </div>
+
+  <div>
+    <%= form.label :score %><br>
+    <%= form.text_field :score %>
+  </div>
+  <div>
+    <%= form.label :time %><br>
+    <%= form.text_field :time %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
