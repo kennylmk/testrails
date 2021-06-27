@@ -31,8 +31,15 @@ Things you may want to cover:
 bundle exec rails s -p 3000 -b '0.0.0.0'
 ```
 # Instruction on how to run unit and integration tests.
+## Request Spects Test
 ```
 bundle exec rspec spec/requests/score.spec.rb
+```
+
+## Model Spects Test
+
+```
+bundle exec rspec spec/model/score.spec
 ```
 # Quick documentation of your API.
 # (bonus/optional) a Docker compose setup that runs you app automatically

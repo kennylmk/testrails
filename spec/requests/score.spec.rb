@@ -29,4 +29,50 @@ describe'Score API', type: :request do
             expect(response).to have_http_status(:no_content)
         end
     end
+
+    describe 'PUT /scores/:id' do
+        it 'Update a score' do
+            score=FactoryBot.create(:score, player: 'kenny0', score:'1', time: '2021/06/01 00:00:00')
+            put "/scores/#{score.id}", params: { score: {score: '2'}  }
+            expect(response).to have_http_status(:no_content)
+        end
+    end
+
+    describe 'List ' do
+        it 'Get all scores by playerX' do
+            get '/scores/list?player=kenny2'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'Get all score after 05 Jun 2021' do
+            get '/scores/list?start=2021-06-06'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'Get all scores by player1, player2 and player3 before 06 Jun 2021' do
+            get '/scores/list?player[]=kenny&player[]=kenny2&start=2021-06-06'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'Get all scores in between' do
+            get '/scores/list?start=2021-06-05&end=2021-06-06'
+            expect(response).to have_http_status(:ok)
+        end
+    end
+
+    describe 'History ' do
+        it 'Top score' do
+            get '/scores/list?query=top&player=kenny2'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'Low score' do
+            get '/scores/list?query=low&player=kenny2'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'Average score' do
+            get '/scores/list?query=average&player=kenny2'
+            expect(response).to have_http_status(:ok)
+        end
+        it 'List of all the scores of a player' do
+            get '/scores/list?player=kenny2'
+            expect(response).to have_http_status(:ok)
+        end
+    end
 end
