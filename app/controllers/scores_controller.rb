@@ -44,15 +44,15 @@ class ScoresController < ApplicationController
     # "Get all scores by player1, player2 and player3 before 1st december 2020"
     # "Get all scores after 1 Jan 2020 and before 1 Jan 2021"
 
-    per_page=2
+    per_page=10
     unless params[:players].blank?
       players = params[:players]
-      @scores=Score.select('score').where(player:players)
+      @scores=Score.select('score').where("LOWER(player) LIKE lower(?)",players)
     end
     if params.has_key?(:player) 
       request.query_parameters.each do |key,value|
         if key =='player'
-          @scores = @scores ? @scores.select('score').where(player:value.to_s) :  Score.select('score').where(player:value.to_s)
+          @scores = @scores ? @scores.select('score').where("LOWER(player) LIKE lower(?)",value.to_s) :  Score.select('score').where("LOWER(player) LIKE lower(?)",value.to_s)
         end
       end
     end

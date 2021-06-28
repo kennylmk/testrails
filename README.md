@@ -1,5 +1,6 @@
-# Instructions on how to build and run your app.
-## Setup
+### This is an API project which run on Ruby on rails to keep track the score of the player. 
+
+# Setup
 * Install all gems:
 ```
 $ bundle install
@@ -52,7 +53,7 @@ rails db:migrate
 bundle exec rails s -p 3000 -b '0.0.0.0'
 ```
 
-# Instruction on how to run unit and integration tests.
+# Testing
 ## Request Spec Test
 ```
 bundle exec rspec spec/requests/score.spec.rb
@@ -63,8 +64,7 @@ bundle exec rspec spec/requests/score.spec.rb
 ```
 bundle exec rspec spec/model/score.spec
 ```
-# Quick documentation of your API.
-## Usage
+# Usage
 |Http   | Paths | Controller#Action|Used for|
 |-|-|-|-|
 |GET | /scores|scores#index|List all the records|
@@ -92,9 +92,11 @@ Delete an existing record by id:
 $ curl -X DELETE -H 'Content-Type: application/json'  http://0.0.0.0:3000/scores/11
 ```
 ## Get list of scores
+Pagination is implemented in this API and default to page 1 per 10 records if you don't add the page into query string.
+
 ### Get all scores by playerX
 ```
-$ curl http://0.0.0.0:3000/scores/list?player=test
+$ curl http://0.0.0.0:3000/scores/list?player=test&page=1
 ```
 ### Get all score after 1st November 2020
 ```
@@ -137,9 +139,11 @@ docker build -t score-image .
 Run docker
 ```
 docker run -p 3000:3000 -d score-image
+curl http://0.0.0.0:3000/scores
+
 ```
 
-curl http://0.0.0.0:3000/scores
+
 
 
 ## docker-compose start up
