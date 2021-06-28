@@ -1,5 +1,5 @@
 class ScoresController < ApplicationController
-  before_action :set_score, only: [:display,:show, :update, :destroy]
+  before_action :set_score, only: [:show, :update, :destroy]
 
   skip_before_action :verify_authenticity_token
   def index 
