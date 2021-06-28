@@ -34,13 +34,25 @@ $ bundle install
 ```
 
 ### Install ruby
+2.7.3 onwards 
+
+https://rubyinstaller.org/
+
 ```
-gem UPDATE
+sudo apt-get install ruby-full
+
+```
+
+### gem UPDATE
+2.7.3
+```
 gem update --system
 
 ```
 
-###Install SQLite3
+
+### Install SQLite3
+
 
 ```
  gem install sqlite3-ruby
@@ -63,11 +75,16 @@ rails new score
 
 
 ## Usage
-Http   | Paths | Used for
-GET | /scores|
-POST | /scores/:id | Create record
-PUT | /scores/:id | Update record
-DELETE | /scores/:id | Delete record
+|Http   | Paths | Controller#Action|Used for|
+|-|-|-|-|
+|GET | /scores|scores#index|List all the records|
+|POST | /scores/:id |scores#create| Create record ????|
+|GET|/scores/:id|scores#show| display a specific score record|
+|PUT | /scores/:id | scores#update|Update record|
+|DELETE | /scores/:id |scores#destroy| Delete record|
+|GET|/scores/history|scores#history| Get History score of the player|
+|GET|/scores/list|scores#list| Query Score data|
+
 
 Create a new record
 $ curl -X POST -H 'Content-Type: application/jsoo' -d '{"player":}'
